@@ -1,0 +1,113 @@
+
+  <!-- about section -->
+
+ 
+  <section   class="shopping-cart dark" class="about_section layout_padding" >
+  
+	 		<div class="container">
+		        <div class="pt-4 block-heading">
+		          <h2>Votre Panier</h2>
+		          <p>Cher client,Chere Cliente, voici votre panier, pour passer votre commande ,veuillez valider</p>
+		        </div>
+		        <div class="content">
+	 				<div class="row">
+	 					<div class="col-12">
+	 						<div class="items">
+               <?php  if (isset($_SESSION['mycart'])) foreach ($_SESSION['mycart'] as $product=>$value) : 
+                $row= getProductId($product);
+                ?>
+                <form method="post" action="">
+				 				<div class="product">
+				 					<div class="row">
+					 					<div class="col-md-3">
+					 						<img class="img-fluid mx-auto d-block image" src="../uploads/<?=$row['image']?>">
+					 					</div>
+					 					<div class="col-md-8">
+					 						<div class="info">
+						 						<div class="row">
+                        
+							 						<div class="col-md-4 product-name">
+							 							<div class="product-name">
+								 							<a href="#">< <?=$row['name']?> ></a>
+                             
+								 							<div class="product-info">
+									 							<div> <i class="fas fa-fire"></i><span class="value"> </span></div>
+									 							<div>Categorie : <span class="value"><?=categoryName($row['category'])?></span></div>
+                                 <hr>
+									 							<div>Description : <small class="value"><?=$row['description'] ?></small></div>
+
+									 						</div>
+									 					</div>
+							 						</div>
+							 						<div class="col-md-3 quantity">
+							 							<label class="d-block" for="quantity">Quantity:</label>
+							 							<input id="quantity" onchange="updateTotal()" name="quantite" class="quantite  w-50" type="number" value ="<?=$value?>" class="form-control quantity-input">
+							 							<input type="hidden" name="id" value ="<?=$row['ID']?>">
+
+                          </div>
+							 						<div class="col-md-2 price pt-4">
+                           Prix <span class="prix"><?php echo $row['price']; $sum+=$row['price'];  ?></span>Dt
+							 						</div>
+                           <div class="col-md-3 price pt-4">
+                              <button type="submit" name="remove" class="btn btn-danger">Remove</a>
+                              <button type="submit" name="modifier" class="mt-2 btn btn-primary" >Envoyer</button>
+                            </div>
+                           
+                           
+							 					</div>
+							 				</div>
+					 					</div>
+					 				</div>
+				 				</div>
+               </form>
+                 <?php  endforeach;?>
+               </div>
+				 			
+			 			<div class="col-md-12 col-lg-4 float-right">
+			 				<div class="summary">
+			 					<h3>Summary</h3>
+			 					<div class="summary-item">$<span class="text">Subtotal</span><span id='sub' class="price"></span></div>
+			 					<div class="summary-item"><span class="text">Discount</span><span class="price">$0</span></div>
+			 					<div class="summary-item"><span class="text">Shipping</span><span class="price">$0</span></div>
+			 					<div class="summary-item"><span class="text">Total</span><span class="price">$360</span></div>
+			 				<br>
+            </div>
+            <a href="payment.php?submit=''" class="list-group-item list-group-item-action list-group-item-primary">Valider</a>
+          </div>
+        </div> 
+		 		</div>
+       
+	 		</div>
+       
+  </section>
+ 
+
+
+ 
+  <!-- end about section -->
+<script>
+  
+  function updateTotal(){
+    let sum=[];
+  let qte=[];
+  let total=0;
+var prices = document.querySelectorAll(".prix");
+
+[].forEach.call(prices, function(price) {
+  sum.push(parseInt(price.innerHTML)); 
+});
+var quantities = document.querySelectorAll(".quantite");
+
+[].forEach.call(quantities, function(quantitie) {
+  qte.push(parseInt(quantitie.value)); 
+});
+console.log(qte);
+console.log(sum);
+for (let i = 0;i<qte.length;i++){
+  total += qte[i]*sum[i];
+}
+document.getElementById('sub').innerText=total;
+}
+updateTotal();
+document.querySelectorAll('.quantite').addEventListener("change", updateTotal());
+</script>

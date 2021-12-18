@@ -1,7 +1,5 @@
 <?php
-include 'db.php';
-include 'components.php';
-
+include '../init.php';
 session_start();
 if (isset($_POST['add'])){
   if (!isset($_SESSION['mycart'])){
@@ -20,13 +18,12 @@ $sql = " SELECT * FROM category";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
-include 'functions.php';
 $sql = " SELECT * FROM product";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $rows1=$stmt->fetchAll(PDO::FETCH_ASSOC);
-include 'header.phtml';
+include '../templates/hheader.phtml';
 include 'menu.phtml';
-include 'footer.phtml';
+include '../templates/hfooter.phtml';
 
 ?>

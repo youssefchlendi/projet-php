@@ -1,18 +1,15 @@
 
 <?php session_start();
-  include 'header.phtml';
+  include '../templates/hheader.phtml';
 ?>
-
-
   <!-- about section -->
-
   <section class="about_section layout_padding">
     <div class="container  ">
 
       <div class="row">
         <div class="col-md-6 ">
           <div class="img-box">
-            <img src="assets/images/about-img.png" alt="">
+            <img src="../assets/images/about-img.png" alt="">
           </div>
         </div>
         <div class="col-md-6">
@@ -37,5 +34,5 @@
 
   <!-- end about section -->
   <?php
-include 'footer.phtml';
+include '../templates/hfooter.phtml';
 ?>

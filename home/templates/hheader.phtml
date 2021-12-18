@@ -11,26 +11,27 @@
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <link rel="shortcut icon" href="assets/images/favicon.png" type="">
-
+  <link rel="shortcut icon" href="../assets/images/favicon.png" type="">
+<?=basename($_SERVER['PHP_SELF'])=="panier.phtml"?'<link href="../assets/css/Panier.css" rel="stylesheet">
+':'';?>
   <title> CoolFood </title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 
   <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css" />
 
   <!--owl slider stylesheet -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
   <!-- nice select  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
   <!-- font awesome style -->
-  <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../assets/css/font-awesome.min.css" rel="stylesheet" />
 
   <!-- Custom styles for this template -->
-  <link href="assets/css/style.css" rel="stylesheet" />
+  <link href="../assets/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
-  <link href="assets/css/responsive.css" rel="stylesheet" />
+  <link href="../assets/css/responsive.css" rel="stylesheet" />
 
 </head>
 
@@ -38,13 +39,13 @@
 
   <div class="hero_area">
     <div class="bg-box">
-      <img src="assets/images/hero-bg.jpg" alt="">
+      <img src="../assets/images/hero-bg.jpg" alt="">
     </div>
     <!-- header section strats -->
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="./">
+          <a class="navbar-brand" href="../">
             <span>
               CoolFood
             </span>
@@ -57,16 +58,16 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item">
-                <a class="nav-link" href="./">Home </a>
+                <a class="nav-link" href="../">Home </a>
               </li>
               <li class="nav-item <?= basename($_SERVER['PHP_SELF']) =='menu.php'?'active':''?>">
-                <a class="nav-link" href="menu.php">Menu</a>
+                <a class="nav-link" href="../menu">Menu</a>
               </li>
               <li class="nav-item <?= basename($_SERVER['PHP_SELF']) =='about.php'?'active':''?>">
-                <a class="nav-link" href="about.php">About</a>
+                <a class="nav-link" href="../about">About</a>
               </li>
               <li class="nav-item <?= basename($_SERVER['PHP_SELF']) =='book.php'?'active':''?>">
-                <a class="nav-link" href="book.php">Book Table</a>
+                <a class="nav-link" href="../book">Book Table</a>
               </li>
             </ul>
             <div class="user_option">
@@ -75,15 +76,15 @@
                   <i class="fa fa-user" aria-hidden="true"></i>
                 </a>
                 <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
-                  <?=isset($_SESSION['status'])?'<a class="dropdown-item text-danger m-0" href="../auth/a">'.$_SESSION['user'].'</a>':'';?>
+                  <?=isset($_SESSION['status'])?'<a class="dropdown-item text-danger m-0" href="../../auth/a">'.$_SESSION['user'].'</a>':'';?>
       
-                  <?=(!isset($_SESSION['client'])||!$_SESSION['client'])? '<a class="dropdown-item  m-0 " href="../auth/login">Login<i class="fa fa-sign-in float-right" aria-hidden="true"></i></a>':''?>
-                    <a class="dropdown-item  m-0<?= isset($_SESSION['status'])?' d-none':' ' ?>" href="../auth/register">Register</a>
-                  <?=(!isset($_SESSION['admin'])||!$_SESSION['admin'])? ' <a class="dropdown-item  m-0" href="../auth/loginadmin">ADMIN <i class="fa fa-sign-in float-right" aria-hidden="true"></i></a>':'';?>
-                    <?=isset($_SESSION['status'])?'<a class="dropdown-item text-danger m-0" href="../auth/logout">Logout</a>':'';?>
+                  <?=(!isset($_SESSION['client'])||!$_SESSION['client'])? '<a class="dropdown-item  m-0 " href="../../auth/login">Login<i class="fa fa-sign-in float-right" aria-hidden="true"></i></a>':''?>
+                    <a class="dropdown-item  m-0<?= isset($_SESSION['status'])?' d-none':' ' ?>" href="../../auth/register">Register</a>
+                  <?=(!isset($_SESSION['admin'])||!$_SESSION['admin'])? ' <a class="dropdown-item  m-0" href="../../auth/loginadmin">ADMIN <i class="fa fa-sign-in float-right" aria-hidden="true"></i></a>':'';?>
+                    <?=isset($_SESSION['status'])?'<a class="dropdown-item text-danger m-0" href="../../auth/logout">Logout</a>':'';?>
                 </div>
               </div>
-              <a class="cart_link" href="panier.php">
+              <a class="cart_link" href="../panier">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
                     <g>
@@ -142,7 +143,7 @@
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
               </form>
-              <a href="menu.php" class="order_online">
+              <a href="../menu" class="order_online">
                 Order Online
               </a>
             </div>

@@ -1,6 +1,6 @@
 
 <?php session_start();
-  include 'header.phtml';
+  include '../templates/hheader.phtml';
 ?>
 
 
@@ -61,5 +61,5 @@
   <!-- end book section -->
 
 <?php
-include 'footer.phtml';
+include '../templates/hfooter.phtml';
 ?>

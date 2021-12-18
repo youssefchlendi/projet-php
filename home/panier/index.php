@@ -1,6 +1,6 @@
 <?php
-include 'db.php';
-include 'functions.php';
+include '../db.php';
+include '../functions.php';
 session_start();
 $sum=0;
 if (isset($_POST['modifier'])){
@@ -9,5 +9,8 @@ if (isset($_POST['modifier'])){
 if (isset($_POST['remove'])){
     unset($_SESSION['mycart'][$_POST['id']]);
 }
+include '../templates/hheader.phtml';
 include 'panier.phtml';
+include '../templates/hfooter.phtml';
+
 ?>
