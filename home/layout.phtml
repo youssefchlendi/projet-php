@@ -1,0 +1,28 @@
+<?php
+$exist = file_exists('templates');
+if ($exist) {
+include '../templates/header.phtml';
+ include '../templates/topnav.phtml';}
+ else{
+  include 'templates/header.phtml';
+  include 'templates/topnav.phtml';
+ } 
+ ?>
+    <div class="row">
+  <?php
+    if ($exist) {
+      include '../templates/leftnav.phtml';
+    }else{
+      include 'templates/leftnav.phtml';
+    }
+    include 'index.phtml';
+  ?>
+
+<?php
+if ($exist) {
+  include '../templates/footer.phtml';
+}else{
+  include 'templates/footer.phtml';
+
+}
+?>

@@ -1,0 +1,106 @@
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4"><div style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;" class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Categories</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group mr-2">
+                <button class="btn btn-sm btn-outline-secondary">Share</button>
+                <button class="btn btn-sm btn-outline-secondary">Export</button>
+              </div>
+              <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                This week
+              </button>
+            </div>
+            
+        </div>
+        <div class="col">
+              <!-- center -->
+          <div class="row flex-lg-nowrap">
+            <div class="col mb-3">
+              <div class="e-panel card">
+                <div class="card-body">
+                  <div class="card-title">
+                  </div>
+                  <div class="e-table">
+                      <!-- Main content -->
+                    <div class="table-responsive table-lg mt-3">
+                      <table class="table table-bordered">
+                          <!-- Titles -->
+                        <thead>
+                          <tr>
+                            <th class="align-top">
+                              <div class="custom-control custom-control-inline custom-checkbox custom-control-nameless m-0">
+                                <input type="checkbox" class="custom-control-input" id="all-items">
+                                <label class="custom-control-label" for="all-items"></label>
+                              </div>
+                            </th>
+                            <th>ID</th>
+                            <th >Title</th>
+                            <th class="max-width">description</th>
+                            <th>Actions</th>
+                          </tr>
+                        </thead>
+                        <!-- Content -->
+                        <tbody>
+                            <?php
+                                 $rows=getCategories();
+                                 foreach($rows as $row){?>
+                            <tr>
+                              <td class="align-middle">
+                                <div class="custom-control custom-control-inline custom-checkbox custom-control-nameless m-0 align-top">
+                                  <input type="checkbox" class="custom-control-input" id="item-1">
+                                  <label class="custom-control-label" for="item-1"></label>
+                                </div>
+                              </td>
+                              <td class="text-nowrap align-middle"><?php echo $row['ID'];?></td>
+                              <td class="text-nowrap align-middle"><span><?=$row['name'];?></span></td>
+                              <td class="text-center align-middle"><?=$row['description'];?></td>
+                              <td class="text-center align-middle">
+                                <div class="btn-group align-top">
+                                    <button class="btn btn-sm btn-outline-secondary badge"id=<?=$row['ID'];?> type="button" data-toggle="modal" data-target="#user-update-modal<?php echo $row['ID']?>">Edit</button>
+                                    <button class="btn btn-sm btn-outline-secondary badge" type="button" data-toggle="modal" data-target="#user-delete-modal<?php echo $row['ID']?>"><i class="fa fa-trash"></i></button>
+                                </div>
+                              </td>
+                            </tr>
+                            <?php
+                                include 'Cupdate.phtml';
+                                include 'Cdelete.phtml';
+                            }?>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!-- Pagination -->
+                    <div class="d-flex justify-content-center">
+                      <ul class="pagination mt-3 mb-0">
+                        <li class="disabled page-item"><a href="#" class="page-link">‹</a></li>
+                        <li class="active page-item"><a href="#" class="page-link">1</a></li>
+                        <li class="page-item"><a href="#" class="page-link">2</a></li>
+                        <li class="page-item"><a href="#" class="page-link">3</a></li>
+                        <li class="page-item"><a href="#" class="page-link">4</a></li>
+                        <li class="page-item"><a href="#" class="page-link">5</a></li>
+                        <li class="page-item"><a href="#" class="page-link">›</a></li>
+                        <li class="page-item"><a href="#" class="page-link">»</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Right settings -->
+            <div class="col-12 col-lg-3 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="text-center px-xl-3">
+                    <button class="btn btn-success btn-block" type="button" data-toggle="modal" data-target="#user-form-modal">New Category</button>
+                  </div>
+                  <hr class="my-3">
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <!-- User Form Modal -->
+          <?php include 'Ccreate.phtml'; ?>
+        </div>
+        </main>
+      </div>

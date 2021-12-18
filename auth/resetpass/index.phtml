@@ -1,0 +1,49 @@
+
+                            <?php if ($stat==0) echo "
+							<h4 class='card-title'>Reset Password</h4>
+							<form method='POST' class='my-login-validation' novalidate=''>
+                            <div class='form-group'>
+									<label for='email'>E-Mail Address</label>
+									<input id='email' type='email' class='form-control' name='email' value='' required autofocus>
+									<div class='invalid-feedback'>
+										Email is invalid
+									</div>
+								</div>
+								<div class='form-group'>
+									<label for='new-password'>New Password</label>
+									<input id='new-password' type='password' class='form-control' name='password' required autofocus data-eye>
+									<div class='invalid-feedback'>
+										Password is required
+									</div>
+									<div class='form-text text-muted'>
+										Make sure your password is strong and easy to remember
+									</div>
+								</div>
+
+								<div class='form-group m-0'>
+									<button type='submit' class='btn btn-primary btn-block'>
+										Reset Password
+									</button>
+								</div>
+							</form>";
+                            
+                            else if ($stat==1) echo"
+                            
+                            <h4 class='card-title'>Mot de passe changée avec success</h4>
+                            <p class='row align-items-center mt-5'>
+                            <a class=' ml-auto mr-auto btn btn-primary btn-sm' href='../login' role='button'>Continuer vers la page de connexion</a>
+                          </p>
+                            ";
+                            else if ($stat==2) echo"
+                            
+                            <h4 class='card-title'>Probleme</h4>
+							<h5>Veuillez ressayer</h5>
+                            <p class='row align-items-center mt-5'>
+                            <a class=' ml-auto mr-auto btn btn-primary btn-sm' href='../login' role='button'>Continuer vers la page de connexion</a>
+                          </p>
+                            ";
+                            
+                            ?>
+							
+                            
+						</div>
