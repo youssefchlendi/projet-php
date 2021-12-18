@@ -40,13 +40,36 @@ $(document).ready(function() {
   });
 
 /** google_map js **/
-function myMap() {
-    var mapProp = {
-        center: new google.maps.LatLng(40.712775, -74.005973),
-        zoom: 18,
-    };
-    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-}
+// function myMap() {
+//     var mapProp = {
+//         center: new google.maps.LatLng(40.712775, -74.005973),
+//         zoom: 18,
+//     };
+//     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+//       // The marker, positioned at Uluru
+//   const marker = new google.maps.Marker({
+//     position: bizerte,
+//     map: map,
+//   });
+// }
+//    // Initialize and add the map
+//    function myMap() {
+//     // The location of Uluru
+//     const uluru = { lat: 37.2768, lng: 9.8642 };
+//     // The map, centered at Uluru
+//     const map = new google.maps.Map(document.getElementById("googleMap"), {
+//       zoom: 4,
+//       center: uluru,
+//     });
+//     // The marker, positioned at Uluru
+//     const marker = new google.maps.Marker({
+//       position: uluru,
+//       map: map,
+//     });
+//   }
+
+
+
 
 // client section owl carousel
 $(".client_owl-carousel").owlCarousel({
