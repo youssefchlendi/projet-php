@@ -13,7 +13,7 @@
   <meta name="author" content="" />
   <link rel="shortcut icon" href="images/favicon.png" type="">
 
-  <title> Feane </title>
+  <title> CoolFood </title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -43,8 +43,7 @@
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.html">
             <span>
-
-              Feane
+            CoolFood
             </span>
           </a>
 
@@ -61,10 +60,10 @@
                 <a class="nav-link" href="menu.php">Menu</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="about.php">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="book.html">Book Table</a>
+                <a class="nav-link" href="book.php">Book Table</a>
               </li>
             </ul>
             <div class="user_option">
@@ -76,15 +75,15 @@
                   <i class="fa fa-user" aria-hidden="true"></i>
                 </a>
                 <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
-                <?=isset($_SESSION['status'])?'<a class="dropdown-item text-danger m-0" href="../auth/a">'.$_SESSION['user'].'</a>':'';?>
-    
-                <?=(!isset($_SESSION['client'])||!$_SESSION['client'])? '<a class="dropdown-item  m-0 " href="../auth/login">Login<i class="fa fa-sign-in float-right" aria-hidden="true"></i></a>':''?>
-                  <a class="dropdown-item  m-0<?= isset($_SESSION['status'])?' d-none':' ' ?>" href="../auth/register">Register</a>
-                 <?=(!isset($_SESSION['admin'])||!$_SESSION['admin'])? ' <a class="dropdown-item  m-0" href="../auth/loginadmin">ADMIN <i class="fa fa-sign-in float-right" aria-hidden="true"></i></a>':'';?>
-                  <?=isset($_SESSION['status'])?'<a class="dropdown-item text-danger m-0" href="../auth/logout">Logout</a>':'';?>
+                  <?=isset($_SESSION['status'])?'<a class="dropdown-item text-danger m-0" href="../auth/a">'.$_SESSION['user'].'</a>':'';?>
+      
+                  <?=(!isset($_SESSION['client'])||!$_SESSION['client'])? '<a class="dropdown-item  m-0 " href="../auth/login">Login<i class="fa fa-sign-in float-right" aria-hidden="true"></i></a>':''?>
+                    <a class="dropdown-item  m-0<?= isset($_SESSION['status'])?' d-none':' ' ?>" href="../auth/register">Register</a>
+                  <?=(!isset($_SESSION['admin'])||!$_SESSION['admin'])? ' <a class="dropdown-item  m-0" href="../auth/loginadmin">ADMIN <i class="fa fa-sign-in float-right" aria-hidden="true"></i></a>':'';?>
+                    <?=isset($_SESSION['status'])?'<a class="dropdown-item text-danger m-0" href="../auth/logout">Logout</a>':'';?>
                 </div>
               </div>
-              <a class="cart_link" href="#">
+              <a class="cart_link" href="panier.php">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
                     <g>
@@ -143,7 +142,7 @@
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
               </form>
-              <a href="" class="order_online">
+              <a href="menu.php" class="order_online">
                 Order Online
               </a>
             </div>
@@ -165,52 +164,10 @@
                       Fast Food Restaurant
                     </h1>
                     <p>
-                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
-                    </p>
+                    CoolFood is a restaurant/fastfood based in Cornish Bizerte,We offer you a fast home delivery service, choose your meal from our menu and in a few minutes it will be at your door
+                  </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
-                        Order Now
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item ">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-7 col-lg-6 ">
-                  <div class="detail-box">
-                    <h1>
-                      Fast Food Restaurant
-                    </h1>
-                    <p>
-                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
-                    </p>
-                    <div class="btn-box">
-                      <a href="" class="btn1">
-                        Order Now
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-7 col-lg-6 ">
-                  <div class="detail-box">
-                    <h1>
-                      Fast Food Restaurant
-                    </h1>
-                    <p>
-                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
-                    </p>
-                    <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="menu.php" class="btn1">
                         Order Now
                       </a>
                     </div>
@@ -223,8 +180,6 @@
         <div class="container">
           <ol class="carousel-indicators">
             <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
-            <li data-target="#customCarousel1" data-slide-to="1"></li>
-            <li data-target="#customCarousel1" data-slide-to="2"></li>
           </ol>
         </div>
       </div>
@@ -235,7 +190,7 @@
 
   <!-- offer section -->
 
-  <section class="offer_section layout_padding-bottom">
+  <section class="d-none offer_section layout_padding-bottom">
     <div class="offer_container">
       <div class="container ">
         <div class="row">
@@ -386,7 +341,7 @@
 
   <!-- food section -->
 
-  <section class="food_section layout_padding-bottom">
+  <section class="food_section pt-5 layout_padding-bottom">
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
@@ -405,12 +360,12 @@
         <div class="row grid">
         <?php
           foreach($rows1 as $row1):
-            productShow($row1['category'],$row1['image'],$row1['name'],$row1['description'],$row1['price']);
+            productShow($row1['category'],$row1['image'],$row1['name'],$row1['description'],$row1['price'],$row1['ID']);
           endforeach;?>
         </div>
       </div>
       <div class="btn-box">
-        <a href="">
+        <a href="menu.php">
           View More
         </a>
       </div>
@@ -434,17 +389,15 @@
           <div class="detail-box">
             <div class="heading_container">
               <h2>
-                We Are Feane
+                We Are CoolFood
               </h2>
             </div>
             <p>
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-              the middle of text. All
-            </p>
-            <a href="">
-              Read More
+              There are many variations of food lovers with our menu we're trying to please all of them, but the majority have problems getting their food 
+            . That's why we're providing your with this service hoping to satisfy your wishes to get your best meal home.
+              </p>
+            <a href="menu.php">
+              Get your food
             </a>
           </div>
         </div>
@@ -458,12 +411,13 @@
   <section class="book_section layout_padding">
     <div class="container">
       <div class="heading_container">
+        <h1 class="text-danger">COMMING SOON</h1>
         <h2>
           Book A Table
         </h2>
       </div>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
           <div class="form_container">
             <form action="">
               <div>
@@ -497,18 +451,14 @@
               <div>
                 <input type="date" class="form-control">
               </div>
-              <div class="btn_box">
-                <button>
-                  Book Now
+              <div class="btn_box grey">
+                <button class=" bg-secondary" disabled="">
+                  <span style="text-decoration:line-through;">Book Now</span>
                 </button>
               </div>
             </form>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="map_container ">
-            <div id="googleMap"></div>
-          </div>
         </div>
       </div>
     </div>
@@ -585,16 +535,16 @@
                   Location
                 </span>
               </a>
-              <a href="">
+              <a href="tel:+21612345678">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
-                  Call +01 1234567890
+                  Call +216 12345678
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
-                  demo@gmail.com
+                  coolfood@gmail.com
                 </span>
               </a>
             </div>
@@ -603,11 +553,11 @@
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
             <a href="" class="footer-logo">
-              Feane
+              CoolFood
             </a>
             <p>
-              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
-            </p>
+            Your best meal wherever you're!
+          </p>
             <div class="footer_social">
               <a href="">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
@@ -642,9 +592,7 @@
       <div class="footer-info">
         <p>
           &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://html.design/">Free Html Templates</a><br><br>
-          &copy; <span id="displayYear"></span> Distributed By
-          <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+          <a href="">PHP</a><br><br>
         </p>
       </div>
     </div>

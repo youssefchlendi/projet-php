@@ -16,6 +16,8 @@ if($pdo!=false){
 
 include 'components.php';
 include 'index.phtml';
+include 'footer.phtml';
+
 }
 
 ?>
