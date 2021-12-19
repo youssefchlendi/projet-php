@@ -11,11 +11,12 @@ $cartItemCount = count($_SESSION['mycart']);
 
 if(isset($_GET['submit']))
     {
-        $sql = " INSERT INTO `order` (`clientId`, `approved`, `adminId`) VALUES (:id, NULL, NULL) ";
+        $sql = " INSERT INTO `order` (`clientId`, `approved`, `adminId`, `approvalDate`, `orderDate`) VALUES (:id, NULL, NULL,NULL,:date) ";
         $stmt = $pdo->prepare($sql);
         $id=$_SESSION['id'];
         $res=$stmt->execute([
-            "id" => $id
+            "id" => $id,
+            "date" => date("Y-m-d H:i:s")
         ]);
         $last_id =$pdo->lastInsertId();
                 if($res)
