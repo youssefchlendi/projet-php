@@ -20,7 +20,8 @@ include "../init.php";
         $_SESSION['status']=false;
 
         if ($column_count && $pass==$password){
-            $_SESSION['user']=$row['email'];
+            $_SESSION['user']=$result['user'];
+            $_SESSION['mail']=$result['email'];
             $_SESSION['status']=true;
             $_SESSION['client']=false;
             $_SESSION['admin']=true;
