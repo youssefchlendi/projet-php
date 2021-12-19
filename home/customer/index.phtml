@@ -1,6 +1,6 @@
 
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4"><div style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;" class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-12 px-4"><div style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1; " class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4  mb-2 border-bottom" style="padding-top:80px!important">
             <h1 class="h2">Customers</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group mr-2">
@@ -22,26 +22,13 @@
             </ul>
           </div> -->
               <!-- center -->
-          <div class="row flex-lg-nowrap">
-            <div class="col mb-3">
-              <div class="e-panel card">
-                <div class="card-body">
-                  <div class="card-title">
-                    <!-- <h6 class="mr-2"><span>Users</span><small class="px-1">Be a wise leader</small></h6> -->
-                  </div>
-                  <div class="e-table">
-                      <!-- Main content -->
-                    <div class="table-responsive table-lg mt-3">
-                      <table class="table table-bordered">
+              <div class="table-responsive table--no-card m-b-40 col-12 pl-0">
+                      <table class="table table-borderless table-striped table-earning">
+
                           <!-- Titles -->
                         <thead>
                           <tr>
-                            <th class="align-top">
-                              <div class="custom-control custom-control-inline custom-checkbox custom-control-nameless m-0">
-                                <input type="checkbox" class="custom-control-input" id="all-items">
-                                <label class="custom-control-label" for="all-items"></label>
-                              </div>
-                            </th>
+                           
                             <th>ID</th>
                             <th>Nom de client</th>
                             <th>Telephone</th>
@@ -53,47 +40,24 @@
                         <tbody>
                             <?php foreach ($rows as $row): ?>
                           <tr>
-                              <td class="align-middle">
-                                <div class="custom-control custom-control-inline custom-checkbox custom-control-nameless m-0 align-top">
-                                  <input type="checkbox" class="custom-control-input" id="item-1">
-                                  <label class="custom-control-label" for="item-1"></label>
-                                </div>
-                              </td>
+                             
                               <td class="text-nowrap align-middle"><?=$row['ID']?></td>
                               <td class="text-nowrap align-middle"><span> <?=$row['name']?></span></td>
                               <td class="text-center align-middle"> <?=$row['phone']?></td> 
                               <td class="text-center align-middle"> <?=$row['adresse']?></td>
                                   <!-- <i class="fa fa-fw text-secondary cursor-pointer fa-toggle-on"></i> -->
                               <td class="text-center align-middle">
-                                <div class="btn-group align-top">
-                                    <button class="btn btn-sm btn-outline-secondary badge" type="button" data-toggle="modal" data-target="#user-form-modal<?=$row['ID'];?>">show details</button>
-                                    <button class="btn btn-sm btn-outline-secondary badge" type="button"><i class="fa fa-trash"></i></button>
+                                <div class="table-data-feature">
+                                    <button class="item" type="button" data-toggle="modal" data-target="#user-form-modal<?=$row['ID'];?>"><i class="zmdi zmdi-more"></i></button>
                                     <?php include 'details.php'?>
                                 </div>
-                              </td>
+                              </td>                                
                             </tr>
                                 <?php endforeach; ?>
                         </tbody>
                       </table>
-                    </div>
-                    <!-- Pagination -->
-                    <div class="d-flex justify-content-center">
-                      <ul class="pagination mt-3 mb-0">
-                        <li class="disabled page-item"><a href="#" class="page-link">‹</a></li>
-                        <li class="active page-item"><a href="#" class="page-link">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                        <li class="page-item"><a href="#" class="page-link">3</a></li>
-                        <li class="page-item"><a href="#" class="page-link">4</a></li>
-                        <li class="page-item"><a href="#" class="page-link">5</a></li>
-                        <li class="page-item"><a href="#" class="page-link">›</a></li>
-                        <li class="page-item"><a href="#" class="page-link">»</a></li>
-                      </ul>
-                    </div>
-                  </div>
                 </div>
-              </div>
-            </div>
-            <!-- Right settings -->
+                
           </div>
       
           <!-- User Form Modal -->
