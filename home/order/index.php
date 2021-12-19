@@ -30,5 +30,15 @@ if (isset($_POST['approved'])){
   sendmail("CoolFood",customerDetails($cust)['email'],$suj,$msg);
   header("Refresh:0");
 }
+      if (isset($_POST['delete'])){
+        $id = checkData($_POST['ID']);
+        $sql = "DELETE FROM `order` WHERE `order`.`ID` = :id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([
+            'id' => $id,
+        ]);
+        header("Refresh:0");
+
+      }
 include '../layout.phtml';
 ?>

@@ -69,11 +69,11 @@
 
                                 <button class="btn btn-sm btn-outline-secondary badge <?= $row['approved']==0?"":"d-none" ?>" type="submit" name="approved" data-toggle="modal" data-target="#user-form-modal">approve</button>
                                 <button class="btn btn-sm btn-outline-secondary badge <?= $row['approved']==0?"d-none":"" ?>" type="submit" name="approved" data-toggle="modal" data-target="#user-form-modal">disapprove</button>
-                                <button class="btn btn-sm btn-outline-secondary badge" type="button"><i class="fa fa-trash"></i></button>
+                                <button class="btn btn-sm btn-outline-secondary badge" type="button" data-toggle="modal" data-target="#user-delete-modal<?=$row['ID'];?>"><i class="fa fa-trash"></i></button>
                                 </div>
                               </td>
                             </tr></form>
-                                <?php include'details.php'; endforeach; ?>
+                                <?php include 'remove.phtml'; include 'details.php';  endforeach; ?>
                         </tbody>
                       </table>
                     </div>
