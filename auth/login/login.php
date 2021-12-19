@@ -20,6 +20,7 @@ include "../init.php";
             if ($column_count && $pass==$password && $status){
                 $_SESSION['user']=$result['name'];
                 $_SESSION['id']=$result['ID'];
+                $_SESSION['mail']=$result['email'];
                 echo $_SESSION['user'];
                 $_SESSION['status']=true;
                 $_SESSION['client']=true;
