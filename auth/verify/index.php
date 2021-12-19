@@ -21,13 +21,13 @@ if($_GET['key'] && $_GET['token'])
         $stat=0;
         if ($row) {
         if($result['email_verified_at'] == NULL){
-            mysqli_query($conn,"UPDATE clients set statu='1', email_verified_at ='" . $d . "' WHERE email='" . $email . "'");
             $sql = "UPDATE clients set statu='1', email_verified_at =:date WHERE email=:email";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([
                 'email' => $email,
                 'date' => $d,
             ]);
+            
             $stat=1;
             $msg = "<h1>Félicitations ! Votre compte a été vérifié.</h1>";
         }else if($result['email_verified_at'] != NULL) {
