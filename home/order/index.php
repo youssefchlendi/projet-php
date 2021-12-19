@@ -12,6 +12,7 @@ $stmt->execute();
 $rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
 if (isset($_POST['approved'])){
   $approved = checkData($_POST['app']);
+  $cust=checkData($_POST['cust']);
   $id = checkData($_POST['id']);
   
   // echo $approved.$id;
@@ -23,7 +24,10 @@ if (isset($_POST['approved'])){
   $stmt->execute([
     'id' => $id,
     'approved' =>$approved
-  ]);   
+  ]);  
+  $suj="Order ".($approved?"approved":"Disapproved").""; 
+  $msg="Your order number  ".$id." has been ".($approved?"approved":"Disapproved")." For more details please call us";
+  sendmail("CoolFood",customerDetails($cust)['email'],$suj,$msg);
   header("Refresh:0");
 }
 include '../layout.phtml';
