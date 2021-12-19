@@ -288,7 +288,7 @@ section {
 }
 .page-container {
     background: #e5e5e5;
-    padding-left: 300px;
+    padding-left: 210px;
 }
 
 @media (max-width: 991px) {
@@ -1420,7 +1420,6 @@ section {
 }
 
 .account-item > .content {
-    margin-left: 45px;
     padding: 9px 0;
     padding-left: 12px;
 }
@@ -1487,7 +1486,6 @@ section {
 }
 
 .account-dropdown .info .content {
-    margin-left: 65px;
     padding: 11px 0;
     padding-left: 12px;
 }
@@ -1577,7 +1575,7 @@ section {
 }
 
 .menu-sidebar {
-    width: 300px;
+    width: 210px;
     position: fixed;
     left: 0;
     top: 0;
