@@ -26,7 +26,7 @@ include "../init.php";
             $_SESSION['client']=false;
             $_SESSION['admin']=true;
             echo $password;
-            header("location: ../../home/dashborad");
+            header("location: ../../home/dashboard");
             exit();
             $stat=1;
         }
