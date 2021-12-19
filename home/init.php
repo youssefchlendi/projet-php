@@ -1,4 +1,9 @@
 <?php
+if (file_exists('send.php')){
+    include 'send.php';
+}else{
+    include '../send.php';
+}
 if (file_exists('components.php')){
     include 'components.php';
 }else{
