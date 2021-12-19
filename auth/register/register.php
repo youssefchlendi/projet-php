@@ -44,7 +44,7 @@ if (isset($_POST['name'])) {
 
         ]);
         /* remplissage des variables avec les champs des form */
-        $link = "<a href='".$_SERVER['HTTP_HOST']."/food/auth/verify/index.php?key=" . $email . "&token=" . $token . "'>Click and Verify Email</a>";
+        $link = "<a href='".$_SERVER['HTTP_HOST']."/poofood/auth/verify/index.php?key=" . $email . "&token=" . $token . "'>Click and Verify Email</a>";
         $stat = 1;
         sendmail("CoolFood", $email, "Lien de Verification", "Cliquez sur ce lien pour vérifier l'e-mail '.$link.'");
     }

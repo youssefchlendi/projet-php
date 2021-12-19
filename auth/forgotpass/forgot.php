@@ -19,7 +19,7 @@ if (isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)
             'email' => $email,
             'token' => $token,
         ]);
-        $link = "<a href='".$_SERVER['HTTP_HOST']."/food/auth/resetpass/?token=".$token."'>Click and recover password</a>";
+        $link = "<a href='".$_SERVER['HTTP_HOST']."/poofood/auth/resetpass/?token=".$token."'>Click and recover password</a>";
         sendmail("CoolFood",$email,"Lien de reset de mot de passe ","Cliquez sur ce lien pour changer votre mot de passe  '.$link.'");
         $stat=1;
     }

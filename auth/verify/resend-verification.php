@@ -13,7 +13,7 @@ include "../init.php";
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         $token=$row['email_verification_link'];
         // remplissage des variables avec les champs des form 
-        $link = "<a href='".$_SERVER['HTTP_HOST']."/food/auth/verify/index.php?key=".$_POST['email']."&token=".$token."'>Click and Verify Email</a>";
+        $link = "<a href='".$_SERVER['HTTP_HOST']."/poofood/auth/verify/index.php?key=".$_POST['email']."&token=".$token."'>Click and Verify Email</a>";
         $stat=1;
         sendmail("CoolFood.",$email,"email de verification",'Cliquez sur ce lien pour vérifier votre e-mail '.$link.'');
 }
