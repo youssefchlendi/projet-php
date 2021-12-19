@@ -65,10 +65,21 @@ function getProductId($id){
 $row=$stmt->fetch(PDO::FETCH_ASSOC);
   return $row;
 }
+
+function getOrderDetails($id){
+  global $pdo;
+  $sql = " SELECT * FROM cart WHERE orderId=:id";
+  $stmt = $pdo->prepare($sql);
+  $stmt->execute([
+  "id" => $id,
+  ]);
+$rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
+  return $rows;
+}
+
 function sendFacture(){
 
   require ('../pdf/fpdf.php');
-  include '../send.php';
 $pdf = new FPDF('P','mm','A4');
 $pdf->AddPage();
 /*output the result*/
