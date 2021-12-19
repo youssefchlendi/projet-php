@@ -1,0 +1,63 @@
+<div class="modal fade" role="dialog" tabindex="-1" id="orderDetails<?=$row['ID'];?>">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Client details</h5>
+                  <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="py-1">
+                      <div class="row">
+                        <div class="col">
+                          <div class="row">
+                            <div class="col">
+                                <label class="text-danger">Name:</label>
+                                <h6 ><?=$client['name']?></h6>
+                            </div>
+                            <div class="col">
+                            <label class="text-danger">Phone number:</label>
+                            <h6 ><?=$client['phone']?></h6>
+                        </div>
+                        <div class="col">
+                            <label class="text-danger">Order Number:</label>
+                            <h6 ><?=$row['ID'];?></h6>
+                        </div>
+                        </div>
+                        <hr>
+                     <?php
+                     foreach ($rows as $row){
+                        //var_dump($row);
+                        $productDetails=getProductId($row['productId']);
+                        // var_dump($productDetails);?>
+                        <div class="row">
+                            <div class="col">
+                                <label class="text-danger">Product:</label>
+                                <h6 ><?=$productDetails['name']?></h6>
+                            </div>
+                            <div class="col">
+                                <label class="text-danger">Price:</label>
+                                <h6 ><?=$productDetails['price']?></h6>
+                            </div>
+                            <div class="col">
+                                <label class="text-danger">Quantity:</label>
+                                <h6 ><?=$row['quantity']?></h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label class="text-danger">Description:</label>
+                                <h6 ><?=$productDetails['description']?></h6>
+                            </div>
+                        </div>
+                        <hr>
+                        <?php
+                        }
+                     ?>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
