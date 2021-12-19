@@ -20,10 +20,10 @@ include 'db.php';
 //     var_dump($row);
 // endforeach;
 
-if( !isset($_SESSION['id']) || empty($_SESSION['id'])){
-    echo "test";
-}
-
+// if( !isset($_SESSION['id']) || empty($_SESSION['id'])){
+//     echo "test";
+// }
+echo $d = date('Y-m-d H:i:s');
 //foreach ($_SESSION['mycart'] as $product=>$value) : 
 
 
