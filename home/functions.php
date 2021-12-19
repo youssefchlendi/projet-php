@@ -28,7 +28,7 @@ function categoryName($id){
     }
     function getTotal($id){
       global $pdo;
-        $sql = "SELECT a.quantity*b.price as total FROM cart a 
+        $sql = "SELECT SUM(a.quantity*b.price) as total FROM cart a 
           JOIN product b on (a.productId=b.ID)
           WHERE orderId=:id
         ";
