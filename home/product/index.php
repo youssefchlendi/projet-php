@@ -6,7 +6,6 @@ if ((empty($_SESSION['admin'])||!empty($_SESSION['admin'])&&isset($_SESSION['adm
    		 header("location: ../../home");
 }
 include '../init.php';
-include '../components.php';
 function getProducts(){
   include '../db.php';
   $sql = " SELECT * FROM product";
