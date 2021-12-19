@@ -14,7 +14,6 @@ if($pdo!=false){
         $stmt->execute();
         $rows1=$stmt->fetchAll(PDO::FETCH_ASSOC);
 
-include 'components.php';
 include 'index.phtml';
 include 'templates/hfooter.phtml';
 
