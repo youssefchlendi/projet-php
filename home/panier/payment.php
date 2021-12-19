@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include 'db.php';
+include '../init.php';
 if(!isset($_SESSION['mycart']) || empty($_SESSION['mycart']) || !isset($_SESSION['id']) || empty($_SESSION['id']))
     {
         header('location:index.php');
@@ -33,10 +33,13 @@ if(isset($_GET['submit']))
                                 "qte"=>$val,
                             ]);
                         }
-                        unset($_SESSION['mycart']);
-                        $_SESSION['confirm_order'] = true;
-                        header('location:thank-you.php');
-                        exit();
+                        if (sendFacture()){
+                            echo "test";
+                            unset($_SESSION['mycart']);
+                            $_SESSION['confirm_order'] = true;
+                            header('location:../thank-you.html');
+                            exit();
+                        }
                     }
                 }
                 else
