@@ -1,6 +1,11 @@
 <?php
 include '../init.php';
 session_start();
+if ((empty($_SESSION['client'])||!empty($_SESSION['client'])&&isset($_SESSION['client']))){
+	if (!$_SESSION['client'])
+   		 header("location: ../../home");
+}
+
 if (isset($_POST['add'])){
   if (!isset($_SESSION['mycart'])){
       $_SESSION['mycart'] = array();
@@ -23,7 +28,7 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $rows1=$stmt->fetchAll(PDO::FETCH_ASSOC);
 include '../templates/hheader.phtml';
-include 'menu.phtml';
+include 'index.phtml';
 include '../templates/hfooter.phtml';
 
 ?>

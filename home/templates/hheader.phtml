@@ -76,7 +76,7 @@
                   <i class="fa fa-user" aria-hidden="true"></i>
                 </a>
                 <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
-                  <?=isset($_SESSION['status'])?'<a class="dropdown-item text-danger m-0" href="../../auth/a">'.$_SESSION['user'].'</a>':'';?>
+                  <?=isset($_SESSION['status'])?'<a class="dropdown-item text-danger m-0" href="../compte.php">'.$_SESSION['user'].'</a>':'';?>
       
                   <?=(!isset($_SESSION['client'])||!$_SESSION['client'])? '<a class="dropdown-item  m-0 " href="../../auth/login">Login<i class="fa fa-sign-in float-right" aria-hidden="true"></i></a>':''?>
                     <a class="dropdown-item  m-0<?= isset($_SESSION['status'])?' d-none':' ' ?>" href="../../auth/register">Register</a>

@@ -6,14 +6,9 @@ if ((empty($_SESSION['admin'])||!empty($_SESSION['admin'])&&isset($_SESSION['adm
    		 header("location: ../../home");
 }
 include '../init.php';
-function getProducts(){
-  include '../db.php';
-  $sql = " SELECT * FROM product";
-  $stmt = $pdo->prepare($sql);
-  $stmt->execute();
-  $rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
-  return $rows;
-}
+include '../classes/products.php';
+$product= new products ();
+
 if (isset($_GET['err'])){
   $error = $_GET['err'];
   $msg='';
@@ -50,15 +45,9 @@ if (isset($_POST['create'])){
     //mysql query
     //Verify that the image is uploaded correctly
     if(move_uploaded_file($_FILES["image"]["tmp_name"], $targetFilePath)){
-        $sql = "INSERT INTO product(name,description,price,image,category) VALUES(:name,:description,:price,:image,:category)";
-        $stmt = $pdo->prepare($sql);
-        $run=$stmt->execute([
-            'name' => $name,
-            'description' => $description,
-            'price' => $price,
-            'image' => $fileName,
-            'category' => $category
-        ]);
+        $product= new products ();
+               $run=  $product-> create( $name,  $description,  $price ,  $fileName, $category);
+        
         if (!$run){
             header('Location: ../error?err=bdexecute');
         }
@@ -92,17 +81,13 @@ if (isset($_POST['delete'])){
   $image = "../uploads/".$_POST['image'];
   if (file_exists($image)){
       unlink($image);
+      echo $image;
       if (file_exists($image)){
           header('Location: ../error?err=delimage1');
       }
       else
-      {
-          $sql = "DELETE FROM product WHERE id = :id";
-          $stmt = $pdo->prepare($sql);
-          $run=$stmt->execute([
-              'id' => $id,
-          ]);
-        
+      {$product->remove($id);
+          
           if (!$run){
               header('Location: ../error?err=del');
           }
@@ -110,7 +95,17 @@ if (isset($_POST['delete'])){
       }
   }
   else{
-      header('Location: ../error?err=delimage');
+    if (file_exists($image)){
+      header('Location: ../error?err=delimage1');
+  }
+  else
+  {$product->remove($id);
+      
+      if (!$run){
+          header('Location: ../error?err=del');
+      }
+      header('Location: index.php');
+  }
   }
   
   
@@ -127,26 +122,9 @@ if (isset($_POST['update'])){
       $targetFilePath = $targetDir . $fileName;
       $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
       if (empty($fileName)){
-          $sql = "UPDATE product SET name= :name,description= :description,price=:price,category=:category where id=:id";
-          $stmt = $pdo->prepare($sql);
-          $run=$stmt->execute([
-              'name' => $name,
-              'description' => $description,
-              'price' => $price,
-              'category' => $category,
-              'id' => $id,
-          ]);
+        $product->updateProductNoImg($id, $name,  $description,  $price , $category);
       }else{
-          $sql = "UPDATE product SET name= :name,description= :description,price=:price,category=:category,image=:image where id=:id";
-          $stmt = $pdo->prepare($sql);
-          $run=$stmt->execute([
-              'name' => $name,
-              'description' => $description,
-              'price' => $price,
-              'category' => $category,
-              'image' => $fileName,
-              'id' => $id,
-          ]);
+        $product->updateProduct($id, $name,  $description,  $price ,  $fileName, $category);
           $statusMsg = '';
           if(move_uploaded_file($_FILES["image"]["tmp_name"], $targetFilePath)){
               // Insert image file name into database

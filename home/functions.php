@@ -142,8 +142,7 @@ $pdf->Cell(118 ,6,'',0,0);
 $pdf->Cell(25 ,6,'Subtotal',0,0);
 $pdf->Cell(45 ,6,$total,1,1,'R');
 
-
-$pdf->Output("/opt/lampp/htdocs/poofood/home/facture/".$_SESSION['user'].".pdf","F");
+$pdf->Output(dirname(__FILE__)."/facture/".$_SESSION['user'].".pdf","F");
 return sendmail("CoolFood",$_SESSION['mail'],"Facture","Si dessous vou trouvez la facture",$_SESSION['user'].".pdf");
 
 

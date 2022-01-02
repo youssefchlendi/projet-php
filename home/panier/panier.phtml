@@ -1,6 +1,8 @@
 
   <!-- about section -->
+<?php
 
+?>
  
   <section   class="shopping-cart dark" class="about_section layout_padding" >
   
@@ -50,37 +52,75 @@
 							 						</div>
                            <div class="col-md-3 price pt-4">
                               <button type="submit" name="remove" class="btn btn-danger">Remove</a>
-                              <button type="submit" name="modifier" class="mt-2 btn btn-primary" >Envoyer</button>
+                              <button  type="submit" name="modifier" class="mt-2 btn btn-primary" >Envoyer</button>
                             </div>
-                           
+                           <!-- Button trigger modal -->
+
+
+
+
                            
 							 					</div>
 							 				</div>
 					 					</div>
 					 				</div>
 				 				</div>
-               </form>
+             
                  <?php  endforeach;?>
                </div>
 				 			
 			 			<div class="col-md-12 col-lg-4 float-right">
 			 				<div class="summary">
 			 					<h3>Summary</h3>
-			 					<div class="summary-item">$<span class="text">Subtotal</span><span id='sub' class="price"></span></div>
-			 					<div class="summary-item"><span class="text">Discount</span><span class="price">$0</span></div>
-			 					<div class="summary-item"><span class="text">Shipping</span><span class="price">$0</span></div>
-			 					<div class="summary-item"><span class="text">Total</span><span class="price">$360</span></div>
+			 					<div class="summary-item">$<span class="text">Total</span>  <span id='sub' class="price"></span></div>
 			 				<br>
             </div>
-            <a href="payment.php?submit=''" class="list-group-item list-group-item-action list-group-item-primary">Valider</a>
-          </div>
+            <a href="payment.php?submit='' " class="list-group-item list-group-item-action list-group-item-primary"> Valider</a>
+			<br>
+			<!-- Button t<rigger modal -->
+				<button name=" submit"  data-bs-toggle="modal" data-bs-target="#details" type="submit" class="btn-primary">Deatils de commande</button>
+			</form>
+			<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="details" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <?php
+		foreach ($orders as $row) {
+			echo "Order id : ".$row['ID']." Order Status : ".($row['approved']?"Approved":"Not Approved")."<br><hr>";
+		}
+		?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+
+
+		</div>
         </div> 
 		 		</div>
        
 	 		</div>
        
   </section>
- 
+ <br>
+ <br>
+ <br>
+
 
 
  
@@ -110,4 +150,6 @@ document.getElementById('sub').innerText=total;
 }
 updateTotal();
 document.querySelectorAll('.quantite').addEventListener("change", updateTotal());
+
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

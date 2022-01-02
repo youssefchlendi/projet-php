@@ -34,7 +34,7 @@
                         <!-- Content -->
                         <tbody>
                             <?php
-                                $rows=getProducts();
+                                $rows=$product->getProducts();
                                  foreach ($rows as $row) {?>
                             <tr>
                               <td class="text-nowrap align-middle"><?=$row['ID']; ?></td>

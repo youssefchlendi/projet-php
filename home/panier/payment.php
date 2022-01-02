@@ -7,8 +7,7 @@ if(!isset($_SESSION['mycart']) || empty($_SESSION['mycart']) || !isset($_SESSION
         exit();
     }
 $cartItemCount = count($_SESSION['mycart']);
-
-
+$done=0;
 if(isset($_GET['submit']))
     {
         $sql = " INSERT INTO `order` (`clientId`, `approved`, `adminId`, `approvalDate`, `orderDate`) VALUES (:id, NULL, NULL,NULL,:date) ";
@@ -39,6 +38,7 @@ if(isset($_GET['submit']))
                             unset($_SESSION['mycart']);
                             $_SESSION['confirm_order'] = true;
                             header('location:../thank-you.html');
+                            $done=1;
                             exit();
                         }
                     }

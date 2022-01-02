@@ -1,0 +1,162 @@
+<?php
+echo "********************".$_SESSION['mail'];
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/styleCompte.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+<header id="header" class="ex-2-header">
+        <div class="container">
+            <div class="row">
+                <div id="compte" class="col-lg-12">
+                    <h1> Votre Compte</h1>
+                    <br>
+                   <div class="card">
+        <div class="card-header">
+         
+        </div>
+        <div class="card-body">
+    
+            <p class="full-name"><?=$_SESSION['user'] ?> </p>
+            <br>
+            <p class="username"></p>
+            <br>
+            <p class="city">Numero d'identite : <?=$_SESSION['client']? $_SESSION['id'] : 1?></p>
+            <br>
+            <p class="desc"> email:<?=$_SESSION['mail']?></p>
+            <p>
+                <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon tumblr"><i class="fab fa-tumblr"></i></a>
+                <a href="#" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-icon linkedin"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-icon google-plus"><i class="fab fa-google-plus"></i></a>
+            </p>
+        </div>
+        <!-- <div class="card-footer">
+            <div class="col vr">
+                <p><span class="count">3</span> Videos</p>
+            </div>
+            <div class="col">
+                <p><span class="count">5</span> Films</p>
+            </div>
+            <div class="col">
+                <p><span class="count">4</span> Jeux</p>
+            </div>
+           <a href="index.php"></a>
+
+        </div> -->
+       
+        <?php
+        include './db.php';
+     //   echo "fffffffffff";
+     if (!$_SESSION['admin']){
+        
+   //  echo $_SESSION['mail'];
+   
+        if (isset($_SESSION['id'])){
+            $id=$_SESSION['id'];
+            $sql = "SELECT * FROM clients WHERE id = :id";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([
+                'id' => $id,
+            ]);  
+            $result=$stmt->fetch(PDO::FETCH_ASSOC);
+            echo $result['adresse'];
+        }
+
+        }
+        ?>
+       <!-- Button trigger modal -->
+       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modificationAccount">
+Modifier le Compte</button>
+<div class="modal fade" id="modificationAccount" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modification des informations</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <form action="<?=$_SERVER['PHP_SELF'] ?>" method ="post">
+          <div class="form-floating mb-3">
+       
+                <input name="email" type="email" class="form-control" id="floatingInput" value="<?=$_SESSION['mail']?>">
+                <label for="floatingInput">Email :</label>
+             </div>
+             <br>
+             <div class="form-floating">
+                        <input name="name" type="text" class="form-control" id="floatingName" value="<?=$_SESSION['user']?>">
+                        <label for="floatingName">Nom</label>
+            </div>
+            <div class="form-floating">
+                        <input name="phone" type="text" class="form-control" id="floatingName" value="<?=$result['phone']?>">
+                        <label for="floatingName">Phone</label>
+            </div>
+            <br>
+           
+            <div class="form-floating">
+                        <input name="passold" type="password" class="form-control" id="floatingPassword" value="">
+                        <label for="floatingPassword">Ancien Mot de passe</label>
+                    
+                     
+                        
+            </div>
+         
+            <?php if (count($error)> 0) : ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <?= $error[0] ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php endif; ?>
+           
+            <div class="form-floating">
+                        <input name="pass" type="password" class="form-control" id="floatingPassword" value="">
+                        <label for="floatingPassword">Mot de passe</label>
+            </div>
+            <br>
+            <div class="form-floating">
+                    <textarea name="adresse" class="form-control" value="" id="floatingTextarea"><?=$result['adresse'] ?></textarea>
+                    <label for="floatingTextarea">Adresse</label>
+            </div>
+            <br>
+         
+
+            
+      </div>
+      
+      <div class="modal-footer">
+        <button  name="close" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+     
+        <button name="submit" type="submit" class="btn btn-primary">Sauvegarde</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+        
+        <br>
+        <br>
+    </div>
+                        </form>
+                        <a href="index.php">Home</a>
+                       
+<!-- scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

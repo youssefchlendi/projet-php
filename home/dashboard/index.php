@@ -32,6 +32,11 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $topClients=$stmt->fetchAll();
 
+$sql = "SELECT * FROM `order` where approved=1";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$activeOrders=$stmt->fetchAll();
+
 include "../layout.phtml";
 
   ?>

@@ -82,8 +82,8 @@
     </svg></a></div>
           </button>
           <div class='input-group input-group-sm mr-3 w-25 float-right'>
-            <input type='number' name='qte' class='form-control' value=0 aria-label='Small' aria-describedby='inputGroup-sizing-sm'>
-         </div>
+          <input type='number' min='1' name='qte' class='form-control' value=1 aria-label='Small' aria-describedby='inputGroup-sizing-sm'>
+          </div>
           </form>
         </div>
       </div>
@@ -176,8 +176,8 @@ function productShowMenu($category_id,$product_img,$product_name,$product_desc,$
     </svg></a></div>
           </button>
           <div class='input-group input-group-sm mr-3 w-25 float-right'>
-            <input type='number' name='qte' class='form-control' value=0 aria-label='Small' aria-describedby='inputGroup-sizing-sm'>
-         </div>
+          <input type='number' min=1  name='qte' class='form-control' value=1 aria-label='Small' aria-describedby='inputGroup-sizing-sm'>
+          </div>
           </form>
         </div>
       </div>
