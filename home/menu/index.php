@@ -3,7 +3,7 @@ include '../init.php';
 session_start();
 if ((empty($_SESSION['client'])||!empty($_SESSION['client'])&&isset($_SESSION['client']))){
 	if (!$_SESSION['client'])
-   		 header("location: ../../home");
+   		 header("location: ../../home?err=2");
 }
 
 if (isset($_POST['add'])){
