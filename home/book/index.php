@@ -8,50 +8,30 @@
   <section class="book_section layout_padding">
     <div class="container">
       <div class="heading_container">
-      <h1 class="text-danger">COMMING SOON</h1>
-
-        <h2>
-          Book A Table
+        <h2 class="text-danger">
+          Contact us 
         </h2>
       </div>
       <div class="row">
         <div class="col-md-8">
           <div class="form_container">
-            <form action="">
-              <div>
-                <input type="text" class="form-control" placeholder="Your Name" />
+            <form action="sendmail.php" method="post">
+            <div>
+                <input type="text" name="nom" class="form-control" placeholder="Your Last Name" />
               </div>
               <div>
-                <input type="text" class="form-control" placeholder="Phone Number" />
+                <input type="text" name="prenom" class="form-control" placeholder="Your First Name" />
               </div>
               <div>
-                <input type="email" class="form-control" placeholder="Your Email" />
+                <input type="email" name="email" class="form-control" placeholder="Your Email" />
               </div>
               <div>
-                <select class="form-control nice-select wide">
-                  <option value="" disabled selected>
-                    How many persons?
-                  </option>
-                  <option value="">
-                    2
-                  </option>
-                  <option value="">
-                    3
-                  </option>
-                  <option value="">
-                    4
-                  </option>
-                  <option value="">
-                    5
-                  </option>
-                </select>
-              </div>
-              <div>
-                <input type="date" class="form-control">
+              <textarea  name="text" class="form-control" placeholder="your message here" id="floatingTextarea"></textarea>
+
               </div>
               <div class="btn_box">
-                <button>
-                  Book Now
+                <button type="submit" >
+                  Send Email
                 </button>
               </div>
             </form>
