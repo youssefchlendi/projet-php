@@ -102,7 +102,7 @@ $pdf->Cell(25 ,5,'Facture Date:',0,0);
 $pdf->Cell(34 ,5,date("Y/m/d"),0,1);
 $pdf->Cell(130 ,5,'',0,0);
 $pdf->Cell(25 ,5,'Facture No:',0,0);
-$pdf->Cell(34 ,5,'NUMERO FACTURE',0,1);
+$pdf->Cell(34 ,5,'######',0,1);
 $pdf->SetFont('Arial','B',15);
 $pdf->Cell(130 ,5,'Bill To',0,0);
 $pdf->Cell(59 ,5,$_SESSION['user'],0,0);
