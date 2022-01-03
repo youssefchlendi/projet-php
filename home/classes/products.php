@@ -30,22 +30,20 @@ class products{
         $sql = 'DELETE FROM product WHERE id = :id';
         $this->pdo->prepareRequete($sql, ['id' => $id]);
     }
-    public  function updateProduct(int $id,string $name, string $description, float $price , string $fileName,int $category){
-    $sql = "UPDATE product SET name= :name,description= :description,price=:price,category=:category,image=:image where id=:id";
+    public  function updateProduct(int $id,string $name, string $description, float $price , string $fileName){
+    $sql = "UPDATE product SET name= :name,description= :description,price=:price,image=:image where id=:id";
     $stmt= $this->pdo->prepareRequete($sql,['id'=>$id,'name' => $name,
         'description' => $description,
         'price' => $price,
-        'image' => $fileName,
-        'category' => $category]);
+        'image' => $fileName]);
        ;
 }
-    public  function updateProductNoImg(int $id,string $name, string $description, float $price ,int $category){
-    $sql = "UPDATE product SET name= :name,description= :description,price=:price,category=:category where id=:id";
+    public  function updateProductNoImg(int $id,string $name, string $description, float $price ){
+    $sql = "UPDATE product SET name= :name,description= :description,price=:price where id=:id";
     $stmt= $this->pdo->prepareRequete($sql,['id'=>$id,'name' => $name,
         'description' => $description,
-        'price' => $price,
-        'category' => $category]);
-       ;
+        'price' => $price]);
+    ;
 }
 }
 

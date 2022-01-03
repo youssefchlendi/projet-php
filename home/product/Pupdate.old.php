@@ -34,18 +34,6 @@
                                 <input class="form-control" type="number" name="price" placeholder="12" value="<?=$row['price'] ?>">
                               </div>
                             </div>
-                            <div class="col">
-                              <div class="form-group">
-                                <label>Category </label>
-                                <select class="form-control" name="category">
-                                  <?php 
-                                  $rows=getCategories();
-                                        foreach($rows as $row1):?>
-                                  <option value="<?=$row1['ID'];?>"><?=$row1['name'];?></option>
-                                  <?php endforeach;?>
-                                </select>
-                              </div>
-                            </div>
                           </div>
                           <div class="row">
                               <div class="col">

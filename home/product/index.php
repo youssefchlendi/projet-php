@@ -114,17 +114,16 @@ if (isset($_POST['update'])){
   $name = checkData($_POST['name']);
   $description = checkData($_POST['description']);
   $price = checkData($_POST['price']);
-  $category = checkData($_POST['category']);
   $id= checkData($_POST['ID']);
       // File upload path
-      $targetDir = "uploads/";
+      $targetDir = "../uploads/";
       $fileName = basename($_FILES["image"]["name"]);
       $targetFilePath = $targetDir . $fileName;
       $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
       if (empty($fileName)){
-        $product->updateProductNoImg($id, $name,  $description,  $price , $category);
+        $product->updateProductNoImg($id, $name,  $description,  $price );
       }else{
-        $product->updateProduct($id, $name,  $description,  $price ,  $fileName, $category);
+        $product->updateProduct($id, $name,  $description,  $price ,  $fileName);
           $statusMsg = '';
           if(move_uploaded_file($_FILES["image"]["tmp_name"], $targetFilePath)){
               // Insert image file name into database

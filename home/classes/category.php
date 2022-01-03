@@ -47,7 +47,10 @@ class Category
         $stmt = $this->pdo->prepareRequete($sql,[
             'id' => $id,
         ]);
-      
+        include 'products.php';
+        $product = new products ();
+        $product->remove($id);
+
     }
     
 
