@@ -8,6 +8,8 @@
   <section class="book_section layout_padding">
     <div class="container">
       <div class="heading_container">
+      <h1 class="text-danger">COMMING SOON</h1>
+
         <h2>
           Book A Table
         </h2>
